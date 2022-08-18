@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  width: 100%;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  height: 100vh;
+  color: #fff;
+  overflow-y: hidden;
+}
+
+input[type="number"] {
+  --moz-appearance: textfield;
+}
+
+
+.btn {
+  @apply align-middle no-underline border-solid border-transparent bg-transparent leading-normal select-none text-center flex font-bold py-2 px-4 rounded cursor-pointer focus:outline-none focus:ring-2 focus:ring-opacity-75;
+  transform: transform 0.3s ease;
+  font-size: 1rem;
+
+  &:active {
+    animation-name: btn-flash;
+    animation-duration: 0.5s;
+    /* Change to make: (slower||faster) */
+  }
+
+  &:disabled {
+    @apply pointer-events-none cursor-not-allowed opacity-60;
+  }
+
+  /* Sizes */
+  &--small {
+    @apply py-1.5 px-3;
+  }
+
+  &--medium {
+    @apply py-2 px-4;
+  }
+
+  /* Styles */
+
+  &--default {
+    @apply text-white bg-blue-500 hover:bg-blue-700 focus:ring-blue-400;
+  }
+
+  &--danger {
+    @apply text-white bg-red-500 hover:bg-red-700 focus:ring-red-400;
+  }
+
+  &--success {
+    @apply text-white bg-green-500 hover:bg-green-700 focus:ring-green-400;
+  }
+
+  &--disabled {
+    @apply rounded py-2 px-4 cursor-pointer items-center;
+    @apply flex bg-gray-200 text-gray-400 text-center;
+    max-height: 40px;
+    font-size: 15px;
+  }
+
+  &--outline {
+    &--default {
+      @apply bg-transparent hover:bg-blue-500 text-black hover:text-white border border-blue-500 hover:border-transparent;
+
+      &--default:hover {
+        .pathClassname {
+          fill: #ffffff;
+          stroke: #ffffff;
+        }
+      }
+
+    }
+    &--danger {
+      @apply bg-transparent hover:bg-red-500 text-red-500 hover:text-white border border-red-500 hover:border-transparent;
+    }
+
+    &--warning {
+      @apply bg-transparent hover:bg-orange-500 text-orange-500 hover:text-white border border-orange-500 hover:border-transparent;
+    }
+
+    &--success {
+      @apply bg-transparent hover:bg-green-500 text-green-500 hover:text-white border border-green-500 hover:border-transparent;
+    }
+  }
+}
+
+.form--custom {
+  @apply py-2 rounded border-blue-100 bg-white h-10 text-gray-600;
+  @apply border-[1px] outline-none focus-within:border-[1px] focus-within:border-[#4aa1cc] pl-5;
+}
