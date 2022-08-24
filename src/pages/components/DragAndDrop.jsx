@@ -3,13 +3,12 @@ import Files from "react-files";
 import add_img from "assets/img/add-image.svg";
 import { isObjectEmpty } from "utils/helper";
 
-const DragAndDrop = ({onChange}) => {
-	const [uploadedFile, setUploadedFile] = useState([]);
+const DragAndDrop = ({onChange, image_Url, fileName}) => {
+	const [uploadedFile, setUploadedFile] = useState({name:fileName,  preview: { url: image_Url}});
 
 	const onFilesChange = (file) => {
 		setUploadedFile(file[0]);
     onChange()
-		console.log(file, file[0].name);
 	};
 
 	// error to display when error on file upload
@@ -29,7 +28,7 @@ const DragAndDrop = ({onChange}) => {
 				minFileSize={0} // minFileSize={0}
 				clickable
 			>
-				{ uploadedFile.length === 0 ?
+				{ uploadedFile.name.length === 0 ?
 					<div>
 						<i className="ut-cloud-upload ut--5x text-gray-300" />
 						<p className="text-gray-600 font-semibold">Ajouter le logo du commerce</p>
@@ -41,7 +40,7 @@ const DragAndDrop = ({onChange}) => {
 				}
 
 				<button className="">
-					<img src={uploadedFile.length === 0 ? '' : uploadedFile.preview?.url} onError={({ currentTarget }) => {
+					<img src={isObjectEmpty(uploadedFile) ? '' : uploadedFile.preview?.url} onError={({ currentTarget }) => {
         currentTarget.onerror = null; // prevents looping
         currentTarget.src = add_img;
       }} className="rounded w-28 ml-4" />

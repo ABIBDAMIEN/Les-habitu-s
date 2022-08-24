@@ -21,9 +21,10 @@ export const getShops = () => async (dispatch: (arg0: { type: any, payload: any 
   } catch (e: any){
     dispatch({
       type: "GET_SHOPS_FAIL",
-      payload: e.response && e.response.data.message
-        ? e.response.data.message
-        : e.message
+      payload: e.message
     })
+  }
+  
 
-}};
+
+};

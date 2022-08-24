@@ -1,8 +1,8 @@
-export type ShopApiItemType = {
-  picture_url: string,
-  chain: string,
-  localisations: Array<any>
-  offers: Array<any>
+export interface ShopApiItemType {
+  picture_url: string;
+  chain: string;
+  localisations: Array<any>;
+  offers: Array<any>;
 }
 
 export type ShopItemType = {

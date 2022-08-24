@@ -2,7 +2,6 @@ import { applyMiddleware, combineReducers, createStore } from "redux";
 import { shopReducer } from "./reducers/shopReducer";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
-import { ShopApiItemType, ShopItemType } from 'types/Items';
 
 
 
